@@ -36,6 +36,22 @@ public class StudentController {
         }
 
         @GetMapping("/student/create")
-        public  ResponseEntity<Student> createStudent(@RequestParam)
+        public  ResponseEntity<Student> createStudent(@RequestParam String name, @RequestParam String id)
+        {
+                return new ResponseEntity<>(studentService.createStudent(new Student(id, name)), HttpStatus.OK);
+        }
+
+        @GetMapping("/student/delete")
+        public  ResponseEntity<String> deleteStudentById(@RequestParam String id)
+        {
+                studentService.deleteStudentById(id);
+                return new ResponseEntity<>("Sucessfully Deleted", HttpStatus.OK);
+        }
+
+        @GetMapping("/student/update")
+        public  ResponseEntity<Student> updateStudentById(@RequestParam String id, @RequestParam String name)
+        {
+                return new ResponseEntity<>(studentService.updateStudent(id, name), HttpStatus.OK);
+        }
 
 }

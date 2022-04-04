@@ -15,6 +15,11 @@ public class Student {
     @Column(name= "Stname")
     private String name;
 
+    public Student(String studentid, String name) {
+        this.studentid = studentid;
+        this.name = name;
+    }
+
     @OneToMany(fetch = FetchType.LAZY)
     private List<StudentTeacher> studentTeachers= new ArrayList<>();
 

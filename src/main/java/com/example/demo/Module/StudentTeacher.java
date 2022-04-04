@@ -16,6 +16,7 @@ public class StudentTeacher {
     @ManyToOne(fetch = FetchType.LAZY)
     private Teacher teacher;
 
+    public StudentTeacher(){}
 
     public StudentTeacher(Student student, Teacher teacher) {
         this.student = student;
