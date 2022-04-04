@@ -1,5 +1,7 @@
 package com.example.demo.Module;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,7 @@ public class Student {
     }
 
     @OneToMany(fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<StudentTeacher> studentTeachers= new ArrayList<>();
 
     public List<StudentTeacher> getStudentTeachers()
